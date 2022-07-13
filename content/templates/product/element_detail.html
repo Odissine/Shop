@@ -1,0 +1,9 @@
+{% extends 'layout/base.html'%}
+{% block title %} Produits {% endblock %}
+{% block content %}
+<ul>
+    {% for profile in profiles %}
+    <li>{{ profile.name }}</li>
+    {% endfor %}
+</ul>
+{%  endblock %}
