@@ -1,5 +1,19 @@
 {% extends 'layout/base.html'%}
 {% block title %} Produits {% endblock %}
 {% block content %}
-INDEX PRODUITS
+<h3>Ajouter</h3>
+<form method="POST" class="d-flex gap-2 mt-2 form-floating">
+    {% csrf_token %}
+
+    <input type="text" name="element" class="form-control" placeholder="{{ element.title }}" id="floatingInputElement">
+    <label for="floatingInputElement">{{ element.title }}</label>
+    <button hx-post="{% url 'add-product-element' element %}"
+            hx-target="#elements"
+            hx-swap="beforeend"
+            type="submit"
+            class="btn btn-success">Ajouter
+    </button>
+</form>
+    <div id="elements">
+    </div>
 {% endblock %}

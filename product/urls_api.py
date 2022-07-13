@@ -15,11 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from product.views import index, add_product_element
+from product.views_api import *
 
 
 urlpatterns = [
-    path('', index, name='product-index'),
+    # PATH FOR ALL DATA [ GET ] ------------------------------------------------------
+    path('especes/', all_especes),
+    path('varietes', all_varietes),
+    path('portegreffes', all_portegreffes),
+    path('specialites', all_specialites),
+    path('produits', all_produits),
+    path('greffons', all_greffons),
+    path('inventaires', all_inventaires),
 
-    path('add_element/<str:element>', add_product_element, name='add-product-element'),
+    # PATH FOR ONE DATA [ GET ] ------------------------------------------------------
+    path('espece/<int:id>', get_espece),
+    path('variete/<int:id>', get_variete),
+    path('portegreffe/<int:id>', get_portegreffe),
+    path('specialite/<int:id>', get_specialite),
+    path('produit/<int:id>', get_produit),
+    path('greffon/<int:id>', get_greffon),
+    path('inventaire/<int:id>', get_inventaire),
+
+    # PATH TO ADD DATA [ POST ] -------------------------------------------------------
+    path('add/espece/', add_espece),
 ]
